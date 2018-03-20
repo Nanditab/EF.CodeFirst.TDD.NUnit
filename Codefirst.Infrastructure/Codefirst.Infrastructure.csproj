@@ -49,10 +49,12 @@
   <ItemGroup>
     <Compile Include="DAL\Entities\CategoryEntity.cs" />
     <Compile Include="DAL\Entities\ProductEntity.cs" />
+    <Compile Include="DAL\Store\CategorySeed.cs" />
     <Compile Include="DAL\Store\DatabaseIntialization.cs" />
     <Compile Include="DAL\Store\ProductAlwaysDropDatabaseInitializercs.cs" />
     <Compile Include="DAL\Store\ProductContext.cs" />
     <Compile Include="DAL\Store\ProductDropDatabaseIfChangedInitializer.cs" />
+    <Compile Include="DAL\Store\ProductSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
   </ItemGroup>

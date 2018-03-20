@@ -11,15 +11,12 @@ namespace Codefirst.Infrastructure.DAL.Store
     {
         protected override void Seed(ProductContext context)
         {
-            List<CategoryEntity> categoryList = new List<CategoryEntity>
-            {
-                new CategoryEntity{ ID = 1, Name = "Mobile", IsActive=true},
-                new CategoryEntity{ ID = 1, Name = "TV", IsActive=true},
-                new CategoryEntity{ ID = 1, Name = "Laptop", IsActive=true},
-                new CategoryEntity{ ID = 1, Name = "Tablet", IsActive=true}
-            };
-
+            var categoryList = CategorySeed.GetCategoryForDBIntialization();
             context.Categories.AddRange(categoryList);
+            context.SaveChanges();
+
+            var productList = ProductSeed.GetProductsForDBIntialization();
+            context.Products.AddRange(productList);
             context.SaveChanges();
         }
     }

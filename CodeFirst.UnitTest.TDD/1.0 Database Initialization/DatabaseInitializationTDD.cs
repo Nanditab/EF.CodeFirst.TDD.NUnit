@@ -21,7 +21,9 @@ namespace CodeFirst.UnitTest.TDD._1._0_Database_Initialization
         [Test]
         public void Initialise_Database_NoConnectionString_WithoutSeed()
         {
-            //always recreate database
+            //arrange
+            // ************Important :- commented connection string from the app.config file *******/
+
             //act. Thsi will create database EFCodeFirst.TDD.NUnit in.\sqlexpress  or local db based on the local system.
             DatabaseIntialization.Initialize(DatabaseIntialization.EFInitializerType.DropCreateDatabaseAlways);
             using (ProductContext db = new ProductContext())
@@ -46,9 +48,8 @@ namespace CodeFirst.UnitTest.TDD._1._0_Database_Initialization
         public void Initialise_Database_ConnectionString_WithoutSeed()
         {
             //arrange
-            // ************Important :- Uncomment connection string from the app.config file *******/
-
-            //act. Thsi will create database EFCodeFirst.TDD.NUnit in.\sqlexpress  or local db based on the local system.
+            
+            //act. This will create database EFCodeFirst.TDD.NUnit in.\sqlexpress  or local db based on the local system.
             DatabaseIntialization.Initialize(DatabaseIntialization.EFInitializerType.DropCreateDatabaseAlways);
             using (ProductContext db = new ProductContext())
             {
@@ -79,6 +80,22 @@ namespace CodeFirst.UnitTest.TDD._1._0_Database_Initialization
                 //assert
                 Assert.IsTrue(categories.Count() > 0);
             }          
+        }
+
+        [Test]
+        public void Can_Initialise_Database_And_Product_Table()
+        {
+            //arrange
+
+            //act
+            DatabaseIntialization.Initialize(DatabaseIntialization.EFInitializerType.DropCreateDatabaseAlways);
+            using (ProductContext db = new ProductContext())
+            {
+                var products = db.Products;
+
+                //assert
+                Assert.IsTrue(products.Count() > 0);
+            }
         }
     }
 }
