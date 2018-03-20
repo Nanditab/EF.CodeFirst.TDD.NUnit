@@ -71,6 +71,11 @@
       <Name>Codefirst.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMeImages\CategorySeed.jpg" />
+    <Content Include="ReadMeImages\DBCreated.jpg" />
+    <Content Include="ReadMeImages\TestStructure.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
