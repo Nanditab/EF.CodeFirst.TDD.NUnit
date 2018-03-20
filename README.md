@@ -1,6 +1,5 @@
 # EF.CodeFirst.TDD.NUnit
-This example explore features of EF code first with help of TDD and NUnit. The project will give you little bit of idea how the code is organised 
-and structure in real. However to keep the matter simple I am not following SOLID entirely. To follow the example please read below instruction.
+This example explore features of EF code first with help of TDD and NUnit. The project will give you little bit of idea how the code is organised and structure in real. However to keep the matter simple I am not following SOLID entirely. Also note that the project Codefirst.Domain is just added to illustrate that UI layer will never work directly with the repository. To follow the example please read below instruction.
 # Test
 I tried to put together different test cases to explore all EF Code first feature in an oder. Follow the test cases in ascending order
 
