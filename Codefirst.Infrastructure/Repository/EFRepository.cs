@@ -31,20 +31,49 @@ namespace Codefirst.Infrastructure.Repository
 
             return categories;
         }
+        public User UpdateUser(User user)
+        {
+            
+            using (CodefirstContext db = new CodefirstContext())
+            {
+                var userEntity = db.Users.FirstOrDefault( u=> u.ID == user.ID);
+                if (userEntity != null)
+                {
+                    userEntity.FirstName = user.FirstName;
+                    userEntity.LastName = user.LastName;
+                    userEntity.Email = user.Email;
+                    userEntity.IsActive = user.IsActive;
+                    if (db.SaveChanges() > 0)
+                    {
+                        return Mapper.Map<User>(userEntity);
+                    }
+                }
+                return null;
+            }
+        }
 
         public User AddUser(User user)
         {
             //convert domain model to entity
-            var userEntity = Mapper.Map<UserEntity>(user);
-            using (CodefirstContext db = new CodefirstContext())
+            if (user.ID == 0)
             {
-                db.Users.Add(userEntity);
-                if(db.SaveChanges() > 0)
+                var userEntity = Mapper.Map<UserEntity>(user);
+                using (CodefirstContext db = new CodefirstContext())
                 {
-                    return Mapper.Map<User>(userEntity);
+                   
+                        db.Users.Add(userEntity);
+                    if (db.SaveChanges() > 0)
+                    {
+                        return Mapper.Map<User>(userEntity);
+                    }
                 }
+                return null;
             }
-            return null;
+            else
+            {
+                return UpdateUser(user);
+            }
+            
         }
 
         public List<User> GetUsers()
