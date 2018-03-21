@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1.0 Database Initialization\DatabaseInitializationTDD.cs" />
+    <Compile Include="2.0 CRUD Simple Type\UserTDD.cs" />
+    <Compile Include="3.0 CRUD Complex Type\OrderTDD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,10 +64,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="2.0 CRUD Simple Type\" />
-    <Folder Include="3.0 CRUD Complex Type\" />
+    <Folder Include="4.0 Migration\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Codefirst.Domain\Codefirst.Domain.csproj">
+      <Project>{c1d68ead-f0ba-4074-8956-7fa75a879348}</Project>
+      <Name>Codefirst.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Codefirst.Infrastructure\Codefirst.Infrastructure.csproj">
       <Project>{3d3372c2-4920-497c-af5d-30121076e8b4}</Project>
       <Name>Codefirst.Infrastructure</Name>

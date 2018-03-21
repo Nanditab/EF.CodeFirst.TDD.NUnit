@@ -15,7 +15,7 @@ namespace CodeFirst.UnitTest.TDD._1._0_Database_Initialization
         [SetUp]
         public void TestSetUp()
         {
-
+            DatabaseIntialization.Initialize(DatabaseIntialization.EFInitializerType.DropCreateDatabaseAlways);
         }
 
         [Test]
@@ -25,8 +25,7 @@ namespace CodeFirst.UnitTest.TDD._1._0_Database_Initialization
             // ************Important :- commented connection string from the app.config file *******/
 
             //act. Thsi will create database EFCodeFirst.TDD.NUnit in.\sqlexpress  or local db based on the local system.
-            DatabaseIntialization.Initialize(DatabaseIntialization.EFInitializerType.DropCreateDatabaseAlways);
-            using (ProductContext db = new ProductContext())
+            using (CodefirstContext db = new CodefirstContext())
             {
                 CategoryEntity category = new CategoryEntity
                 {
@@ -50,8 +49,7 @@ namespace CodeFirst.UnitTest.TDD._1._0_Database_Initialization
             //arrange
             
             //act. This will create database EFCodeFirst.TDD.NUnit in.\sqlexpress  or local db based on the local system.
-            DatabaseIntialization.Initialize(DatabaseIntialization.EFInitializerType.DropCreateDatabaseAlways);
-            using (ProductContext db = new ProductContext())
+           using (CodefirstContext db = new CodefirstContext())
             {
                 CategoryEntity category = new CategoryEntity
                 {
@@ -72,8 +70,7 @@ namespace CodeFirst.UnitTest.TDD._1._0_Database_Initialization
             //arrange
 
             //act
-            DatabaseIntialization.Initialize(DatabaseIntialization.EFInitializerType.DropCreateDatabaseAlways);
-            using (ProductContext db = new ProductContext())
+             using (CodefirstContext db = new CodefirstContext())
             {
                 var categories = db.Categories;
                
@@ -88,8 +85,7 @@ namespace CodeFirst.UnitTest.TDD._1._0_Database_Initialization
             //arrange
 
             //act
-            DatabaseIntialization.Initialize(DatabaseIntialization.EFInitializerType.DropCreateDatabaseAlways);
-            using (ProductContext db = new ProductContext())
+            using (CodefirstContext db = new CodefirstContext())
             {
                 var products = db.Products;
 

@@ -7,9 +7,9 @@ using System.Data.Entity;
 using Codefirst.Infrastructure.DAL.Entities;
 namespace Codefirst.Infrastructure.DAL.Store
 {
-    internal class ProductAlwaysDropDatabaseInitializercs : DropCreateDatabaseAlways<ProductContext>
+    internal class ProductAlwaysDropDatabaseInitializercs : DropCreateDatabaseAlways<CodefirstContext>
     {
-        protected override void Seed(ProductContext context)
+        protected override void Seed(CodefirstContext context)
         {
             var categoryList = CategorySeed.GetCategoryForDBIntialization();
             context.Categories.AddRange(categoryList);
@@ -17,6 +17,10 @@ namespace Codefirst.Infrastructure.DAL.Store
 
             var productList = ProductSeed.GetProductsForDBIntialization();
             context.Products.AddRange(productList);
+            context.SaveChanges();
+
+            var userList = UserSeed.GetUsersForDBInitialize();
+            context.Users.AddRange(userList);
             context.SaveChanges();
         }
     }

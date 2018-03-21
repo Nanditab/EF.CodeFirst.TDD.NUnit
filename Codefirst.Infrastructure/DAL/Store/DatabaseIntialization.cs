@@ -24,7 +24,7 @@ namespace Codefirst.Infrastructure.DAL.Store
                     Database.SetInitializer(new ProductAlwaysDropDatabaseInitializercs());
                     break;                
             }           
-            ProductContext db = new ProductContext();
+            CodefirstContext db = new CodefirstContext();
             db.Database.Initialize(false);
             db.Dispose();
         }
